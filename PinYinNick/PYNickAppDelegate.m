@@ -7,6 +7,7 @@
 //
 
 #import "PYNickAppDelegate.h"
+#import "Hanzi2Pinyin/Hanzi2Pinyin.h"
 
 @implementation PYNickAppDelegate
 
@@ -21,7 +22,19 @@
     // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
     // So initialization should be done here.
     _ab = [ABAddressBook sharedAddressBook];
-    _people = [_ab people];
+    NSArray *people = [_ab people];
+    _people = [[NSMutableArray alloc] initWithCapacity:[people count]];
+    
+    for (ABPerson *person in people) {
+        NSMutableString *fullName = [self fullNameForPerson:person];
+        NSMutableString *nick = [self nickForPerson:person fullName:fullName];
+        NSArray *record = [[NSArray alloc] initWithObjects:person,
+                           fullName,
+                           nick,
+                           NO,
+                           nil];
+        [_people addObject:record];
+    }
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
@@ -30,8 +43,7 @@
     return count;
 }
 
-- (NSString *)formatFullName:(NSInteger)row {
-    ABPerson *person = [_people objectAtIndex:row];
+- (NSMutableString *)fullNameForPerson:(ABPerson *)person {
     NSString *firstName = [person valueForProperty:kABFirstNameProperty];
     NSString *lastName = [person valueForProperty:kABLastNameProperty];
     NSMutableString *fullName = [[NSMutableString alloc] initWithCapacity:4];
@@ -47,13 +59,34 @@
     return fullName;
 }
 
+- (NSMutableString *)nickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
+    NSString *nick = [person valueForProperty:kABNicknameProperty];
+    NSMutableString *pynick;
+    if (nick) {
+        // If has nick, use it
+        pynick = [NSMutableString stringWithCapacity:[nick length]];
+        [pynick setString:nick];
+    } else {
+        if (!fullName) {
+            fullName = [self fullNameForPerson:person];
+        }
+        pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
+        // If the full name does not include Chinese, don't create nick
+        if ([pynick isEqualToString:fullName]) {
+            pynick = nil;
+        }
+    }
+    return pynick;
+}
+
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn
             row:(NSInteger)row {
 //    NSLog(@"%@ %ld", tableColumn, row);
+    NSArray *record = [_people objectAtIndex:row];
     if ([[tableColumn identifier] isEqualToString:@"fullName"]) {
-        return [self formatFullName:row];
+        return [record objectAtIndex:1];
     } else {
-        return @"";
+        return [record objectAtIndex:2];
     }
 }
 

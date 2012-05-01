@@ -11,7 +11,7 @@
 
 @interface PYNickAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource> {
     ABAddressBook *_ab;
-    NSArray *_people;
+    NSMutableArray *_people;
 }
 
 @property (assign) IBOutlet NSWindow *window;
