@@ -27,11 +27,19 @@
     
     for (ABPerson *person in people) {
         NSMutableString *fullName = [self fullNameForPerson:person];
-        NSMutableString *nick = [self nickForPerson:person fullName:fullName];
+        
+        // If the person has nick name, use it. Otherwise, create pinyin nick
+        NSString *nick = [person valueForProperty:kABNicknameProperty];
+        BOOL modified = NO;
+        if (!nick) {
+            nick = [self pynickForPerson:person fullName:fullName];
+            modified = [nick isEqualToString:@""] ? NO : YES;
+        }
+
         NSArray *record = [[NSArray alloc] initWithObjects:person,
                            fullName,
                            nick,
-                           NO,
+                           [NSNumber numberWithBool:modified],
                            nil];
         [_people addObject:record];
     }
@@ -59,23 +67,18 @@
     return fullName;
 }
 
-- (NSMutableString *)nickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
-    NSString *nick = [person valueForProperty:kABNicknameProperty];
+- (NSMutableString *)pynickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
     NSMutableString *pynick;
-    if (nick) {
-        // If has nick, use it
-        pynick = [NSMutableString stringWithCapacity:[nick length]];
-        [pynick setString:nick];
-    } else {
-        if (!fullName) {
-            fullName = [self fullNameForPerson:person];
-        }
-        pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
-        // If the full name does not include Chinese, don't create nick
-        if ([pynick isEqualToString:fullName]) {
-            pynick = nil;
-        }
+    
+    if (!fullName) {
+        fullName = [self fullNameForPerson:person];
     }
+    pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
+    // If the full name does not include Chinese, don't create nick
+    if ([pynick isEqualToString:fullName]) {
+        pynick = [NSMutableString stringWithString:@""];
+    }
+
     return pynick;
 }
 
