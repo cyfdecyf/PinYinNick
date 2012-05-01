@@ -7,8 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AddressBook/AddressBook.h>
 
-@interface PYNickAppDelegate : NSObject <NSApplicationDelegate>
+@interface PYNickAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource> {
+    ABAddressBook *_ab;
+    NSArray *_people;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 

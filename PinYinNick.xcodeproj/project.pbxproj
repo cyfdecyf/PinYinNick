@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2D0E1C154ED7A500457684 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2D0E1B154ED7A500457684 /* AddressBook.framework */; };
 		FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */; };
 		FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */; };
 		FA948FE9154D6A9A0094E4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA948FE8154D6A9A0094E4E9 /* main.m */; };
@@ -16,19 +17,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2D0E1B154ED7A500457684 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = ../../../../../System/Library/Frameworks/AddressBook.framework; sourceTree = "<group>"; };
 		FA948FD8154D6A9A0094E4E9 /* PinYinNick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinYinNick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FA948FDF154D6A9A0094E4E9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FA948FE0154D6A9A0094E4E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FA948FE1154D6A9A0094E4E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FA948FE4154D6A9A0094E4E9 /* PinYinNick-Info.plist */ = {isa = PBXFileReference; path = "PinYinNick-Info.plist"; sourceTree = "<group>"; };
+		FA948FE4154D6A9A0094E4E9 /* PinYinNick-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PinYinNick-Info.plist"; sourceTree = "<group>"; };
 		FA948FE6154D6A9A0094E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA948FE8154D6A9A0094E4E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FA948FEA154D6A9A0094E4E9 /* PinYinNick-Prefix.pch */ = {isa = PBXFileReference; path = "PinYinNick-Prefix.pch"; sourceTree = "<group>"; };
+		FA948FEA154D6A9A0094E4E9 /* PinYinNick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinYinNick-Prefix.pch"; sourceTree = "<group>"; };
 		FA948FEC154D6A9A0094E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		FA948FEE154D6A9A0094E4E9 /* PYNickAppDelegate.h */ = {isa = PBXFileReference; path = PYNickAppDelegate.h; sourceTree = "<group>"; };
+		FA948FEE154D6A9A0094E4E9 /* PYNickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYNickAppDelegate.h; sourceTree = "<group>"; };
 		FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYNickAppDelegate.m; sourceTree = "<group>"; };
 		FA948FF2154D6A9A0094E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PinYinNick.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */,
+				FA2D0E1C154ED7A500457684 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 		FA948FDB154D6A9A0094E4E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA2D0E1B154ED7A500457684 /* AddressBook.framework */,
 				FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */,
 				FA948FDE154D6A9A0094E4E9 /* Other Frameworks */,
 			);
@@ -82,6 +87,7 @@
 		FA948FE2154D6A9A0094E4E9 /* PinYinNick */ = {
 			isa = PBXGroup;
 			children = (
+				FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */,
 				FA948FEE154D6A9A0094E4E9 /* PYNickAppDelegate.h */,
 				FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */,
 				FA948FF1154D6A9A0094E4E9 /* MainMenu.xib */,
@@ -251,6 +257,7 @@
 		FA948FF7154D6A9A0094E4E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PinYinNick/PinYinNick.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PinYinNick/PinYinNick-Prefix.pch";
 				INFOPLIST_FILE = "PinYinNick/PinYinNick-Info.plist";
@@ -262,6 +269,7 @@
 		FA948FF8154D6A9A0094E4E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PinYinNick/PinYinNick.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PinYinNick/PinYinNick-Prefix.pch";
 				INFOPLIST_FILE = "PinYinNick/PinYinNick-Info.plist";
@@ -289,6 +297,7 @@
 				FA948FF8154D6A9A0094E4E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
