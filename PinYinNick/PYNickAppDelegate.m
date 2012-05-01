@@ -18,6 +18,14 @@
     // Insert code here to initialize your application
 }
 
+// I use the people array to store contact information. Each element in this people
+// array is an array containing related information.
+// The following constants define the index of various informatino.
+static const NSUInteger PERSON_IDX = 0;
+static const NSUInteger FULLNAME_IDX = 1;
+static const NSUInteger NICKNAME_IDX = 2;
+static const NSUInteger MODIFIED_IDX = 3;
+
 - (void)awakeFromNib {
     // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
     // So initialization should be done here.
@@ -36,19 +44,11 @@
             modified = [nick isEqualToString:@""] ? NO : YES;
         }
 
-        NSArray *record = [[NSArray alloc] initWithObjects:person,
-                           fullName,
-                           nick,
-                           [NSNumber numberWithBool:modified],
-                           nil];
+        NSMutableArray *record = [[NSMutableArray alloc] initWithObjects:person,
+                                  fullName, nick, [NSNumber numberWithBool:modified],
+                                  nil];
         [_people addObject:record];
     }
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
-    NSInteger count = [_people count];
-//    NSLog(@"number of rows: %ld", count);
-    return count;
 }
 
 - (NSMutableString *)fullNameForPerson:(ABPerson *)person {
@@ -82,14 +82,35 @@
     return pynick;
 }
 
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
+    NSInteger count = [_people count];
+    //    NSLog(@"number of rows: %ld", count);
+    return count;
+}
+
+static NSString *FULLNAME_IDENTIFIER = @"fullName";
+static NSString *NICKNAME_IDENTIFIER = @"nickName";
+
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn
             row:(NSInteger)row {
 //    NSLog(@"%@ %ld", tableColumn, row);
     NSArray *record = [_people objectAtIndex:row];
-    if ([[tableColumn identifier] isEqualToString:@"fullName"]) {
-        return [record objectAtIndex:1];
+    NSString *columnIdentifier = [tableColumn identifier];
+    if ([columnIdentifier isEqualToString:FULLNAME_IDENTIFIER]) {
+        return [record objectAtIndex:FULLNAME_IDX];
     } else {
-        return [record objectAtIndex:2];
+        return [record objectAtIndex:NICKNAME_IDX];
+    }
+}
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object
+            forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSMutableArray *record = [_people objectAtIndex:row];
+    NSString *columnIdentifier = [tableColumn identifier];
+    if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
+        NSMutableString *nickName = [record objectAtIndex:NICKNAME_IDX];
+        [nickName setString:object];
+        [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
     }
 }
 
