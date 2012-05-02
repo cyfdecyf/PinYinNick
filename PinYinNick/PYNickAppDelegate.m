@@ -27,10 +27,23 @@ static const NSUInteger NICKNAME_IDX = 2;
 static const NSUInteger MODIFIED_IDX = 3;
 static const NSUInteger FULLNAME_PINYIN_IDX = 4;
 
-- (void)awakeFromNib {
-    // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
-    // So initialization should be done here.
-    _ab = [ABAddressBook sharedAddressBook];
+static const CGFloat CELL_FONT_SIZE = 13;
+
+- (void)createCell {
+    // Setup custom data cell for modified person
+    NSColor *blueColor = [NSColor blueColor];
+    NSFont *boldSystemFont = [NSFont boldSystemFontOfSize:(CGFloat)CELL_FONT_SIZE];
+    
+    _fullNameCell = [[NSTextFieldCell alloc] initTextCell:@""];
+    [_fullNameCell setEditable:NO];
+    [_fullNameCell setTextColor:blueColor];
+    [_fullNameCell setFont:boldSystemFont];
+
+    _nickNameCell = [_fullNameCell copy];
+    [_nickNameCell setEditable:YES];
+}
+
+- (void)loadContacts {
     NSArray *people = [_ab people];
     _people = [[NSMutableArray alloc] initWithCapacity:[people count]];
     
@@ -44,7 +57,7 @@ static const NSUInteger FULLNAME_PINYIN_IDX = 4;
             nick = [self pynickForPerson:person fullName:fullName];
             modified = [nick isEqualToString:@""] ? NO : YES;
         }
-
+        
         NSMutableArray *record = [[NSMutableArray alloc] initWithObjects:person,
                                   fullName, nick, [NSNumber numberWithBool:modified],
                                   [Hanzi2Pinyin convert:fullName],
@@ -59,6 +72,14 @@ static const NSUInteger FULLNAME_PINYIN_IDX = 4;
         
         return [namepy1 caseInsensitiveCompare:namepy2];
     }];
+}
+
+- (void)awakeFromNib {
+    // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
+    // So initialization should be done here.
+    _ab = [ABAddressBook sharedAddressBook];
+    [self loadContacts];
+    [self createCell];
 }
 
 - (NSString *)fullNameForPerson:(ABPerson *)person {
@@ -122,6 +143,23 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
         [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
         [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
     }
+}
+
+- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    NSArray *record = [_people objectAtIndex:row];
+    if (!tableColumn)
+        return nil;
+
+    if ([[record objectAtIndex:MODIFIED_IDX] boolValue]) {
+        NSString *columnIdentifier = [tableColumn identifier];
+        if ([columnIdentifier isEqualToString:FULLNAME_IDENTIFIER]) {
+            return _fullNameCell;
+        } else {
+            return _nickNameCell;
+        }
+    }
+    return nil;
 }
 
 @end
