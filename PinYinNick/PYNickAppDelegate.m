@@ -8,6 +8,7 @@
 
 #import "PYNickAppDelegate.h"
 #import "Hanzi2Pinyin/Hanzi2Pinyin.h"
+#import <AppKit/NSAlert.h>
 
 @implementation PYNickAppDelegate
 
@@ -143,9 +144,6 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
         [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
         [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
-
-        ABPerson *person = [record objectAtIndex:PERSON_IDX];
-        [person setValue:object forProperty:kABNicknameProperty];
     }
 }
 
@@ -168,10 +166,40 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 
 - (IBAction)saveModifiedContact:(id)sender {
     for (NSMutableArray *record in _people) {
+        NSString *nickName = [record objectAtIndex:NICKNAME_IDX];
+        ABPerson *person = [record objectAtIndex:PERSON_IDX];
+        [person setValue:nickName forProperty:kABNicknameProperty];
         [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:NO]];
     }
     [_ab save];
     [_contactTableView reloadData];
+}
+
+- (void)alertEnded:(NSAlert *)alert code:(NSInteger)choice context:(void *)v {
+    if (choice == NSAlertDefaultReturn) {
+        NSLog(@"removing nick name");
+        for (NSMutableArray *record in _people) {
+            if ([Hanzi2Pinyin hasChineseCharacter:[record objectAtIndex:FULLNAME_IDX]]) {
+                [record replaceObjectAtIndex:NICKNAME_IDX withObject:@""];
+                [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:NO]];
+                ABPerson *person = [record objectAtIndex:PERSON_IDX];
+                [person setValue:nil forProperty:kABNicknameProperty];
+            }
+        }
+    }
+    [_ab save];
+}
+
+- (IBAction)removeAllPinyinNickNames:(id)sender {
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Remove all pinyin nick names"
+                                     defaultButton:@"Remove"
+                                   alternateButton:@"Cancel"
+                                       otherButton:nil
+                         informativeTextWithFormat:@"Nick names associated with contacts which have Chinese characters will be deleted."];
+    [alert beginSheetModalForWindow:_window
+                      modalDelegate:self
+                     didEndSelector:@selector(alertEnded:code:context:)
+                        contextInfo:NULL];
 }
 
 @end

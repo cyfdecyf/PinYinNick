@@ -22,5 +22,6 @@ NSTableViewDataSource, NSTableViewDelegate> {
 @property (weak) IBOutlet NSTableView *contactTableView;
 
 - (IBAction)saveModifiedContact:(id)sender;
+- (IBAction)removeAllPinyinNickNames:(id)sender;
 
 @end
