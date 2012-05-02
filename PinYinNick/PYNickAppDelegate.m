@@ -92,7 +92,6 @@ static const NSUInteger FULLNAME_PINYIN_IDX = 4;
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
     NSInteger count = [_people count];
-    //    NSLog(@"number of rows: %ld", count);
     return count;
 }
 
@@ -101,7 +100,6 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn
             row:(NSInteger)row {
-//    NSLog(@"%@ %ld", tableColumn, row);
     NSArray *record = [_people objectAtIndex:row];
     NSString *columnIdentifier = [tableColumn identifier];
     if ([columnIdentifier isEqualToString:FULLNAME_IDENTIFIER]) {
@@ -114,6 +112,11 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object
             forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSMutableArray *record = [_people objectAtIndex:row];
+    
+    if ([object isEqualToString:[record objectAtIndex:NICKNAME_IDX]]) {
+        return;
+    }
+    
     NSString *columnIdentifier = [tableColumn identifier];
     if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
         [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
