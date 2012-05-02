@@ -19,5 +19,8 @@ NSTableViewDataSource, NSTableViewDelegate> {
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTableView *contactTableView;
+
+- (IBAction)saveModifiedContact:(id)sender;
 
 @end

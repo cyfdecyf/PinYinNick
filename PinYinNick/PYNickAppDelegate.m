@@ -12,6 +12,7 @@
 @implementation PYNickAppDelegate
 
 @synthesize window = _window;
+@synthesize contactTableView = _contactTableView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -44,6 +45,7 @@ static const CGFloat CELL_FONT_SIZE = 13;
 }
 
 - (void)loadContacts {
+    _ab = [ABAddressBook sharedAddressBook];
     NSArray *people = [_ab people];
     _people = [[NSMutableArray alloc] initWithCapacity:[people count]];
     
@@ -77,7 +79,6 @@ static const CGFloat CELL_FONT_SIZE = 13;
 - (void)awakeFromNib {
     // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
     // So initialization should be done here.
-    _ab = [ABAddressBook sharedAddressBook];
     [self loadContacts];
     [self createCell];
 }
@@ -142,6 +143,9 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
         [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
         [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
+
+        ABPerson *person = [record objectAtIndex:PERSON_IDX];
+        [person setValue:object forProperty:kABNicknameProperty];
     }
 }
 
@@ -160,6 +164,14 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
         }
     }
     return nil;
+}
+
+- (IBAction)saveModifiedContact:(id)sender {
+    for (NSMutableArray *record in _people) {
+        [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:NO]];
+    }
+    [_ab save];
+    [_contactTableView reloadData];
 }
 
 @end
