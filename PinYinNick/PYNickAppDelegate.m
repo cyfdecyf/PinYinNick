@@ -25,6 +25,7 @@ static const NSUInteger PERSON_IDX = 0;
 static const NSUInteger FULLNAME_IDX = 1;
 static const NSUInteger NICKNAME_IDX = 2;
 static const NSUInteger MODIFIED_IDX = 3;
+static const NSUInteger FULLNAME_PINYIN_IDX = 4;
 
 - (void)awakeFromNib {
     // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
@@ -34,7 +35,7 @@ static const NSUInteger MODIFIED_IDX = 3;
     _people = [[NSMutableArray alloc] initWithCapacity:[people count]];
     
     for (ABPerson *person in people) {
-        NSMutableString *fullName = [self fullNameForPerson:person];
+        NSString *fullName = [self fullNameForPerson:person];
         
         // If the person has nick name, use it. Otherwise, create pinyin nick
         NSString *nick = [person valueForProperty:kABNicknameProperty];
@@ -46,15 +47,24 @@ static const NSUInteger MODIFIED_IDX = 3;
 
         NSMutableArray *record = [[NSMutableArray alloc] initWithObjects:person,
                                   fullName, nick, [NSNumber numberWithBool:modified],
+                                  [Hanzi2Pinyin convert:fullName],
                                   nil];
         [_people addObject:record];
     }
+    
+    // Sort people using their full name. Put person with no nick at last.
+    [_people sortUsingComparator:^(id r1, id r2) {
+        NSString *namepy1 = [r1 objectAtIndex:FULLNAME_PINYIN_IDX];
+        NSString *namepy2 = [r2 objectAtIndex:FULLNAME_PINYIN_IDX];
+        
+        return [namepy1 caseInsensitiveCompare:namepy2];
+    }];
 }
 
-- (NSMutableString *)fullNameForPerson:(ABPerson *)person {
+- (NSString *)fullNameForPerson:(ABPerson *)person {
     NSString *firstName = [person valueForProperty:kABFirstNameProperty];
     NSString *lastName = [person valueForProperty:kABLastNameProperty];
-    NSMutableString *fullName = [[NSMutableString alloc] initWithCapacity:4];
+    NSMutableString *fullName = [[NSMutableString alloc] initWithCapacity:10];
     if (lastName != nil) {
         [fullName appendString:lastName];
     }
@@ -64,19 +74,17 @@ static const NSUInteger MODIFIED_IDX = 3;
         else
             [fullName appendFormat:@" %@", firstName];
     }
-    return fullName;
+    return [NSString stringWithString:fullName];
 }
 
-- (NSMutableString *)pynickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
-    NSMutableString *pynick;
-    
+- (NSString *)pynickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
     if (!fullName) {
         fullName = [self fullNameForPerson:person];
     }
-    pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
+    NSString *pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
     // If the full name does not include Chinese, don't create nick
     if ([pynick isEqualToString:fullName]) {
-        pynick = [NSMutableString stringWithString:@""];
+        pynick = @"";
     }
 
     return pynick;
@@ -108,8 +116,7 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     NSMutableArray *record = [_people objectAtIndex:row];
     NSString *columnIdentifier = [tableColumn identifier];
     if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
-        NSMutableString *nickName = [record objectAtIndex:NICKNAME_IDX];
-        [nickName setString:object];
+        [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
         [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
     }
 }
