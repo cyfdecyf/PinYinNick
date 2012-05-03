@@ -10,13 +10,13 @@
 #import <Appkit/NSTextFieldCell.h>
 #import <AddressBook/AddressBook.h>
 
-@interface PYNickAppDelegate : NSObject <NSApplicationDelegate,
-NSTableViewDataSource, NSTableViewDelegate> {
+@interface PYNickAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
     ABAddressBook *_ab;
-    NSMutableArray *_people;
     NSTextFieldCell *_fullNameCell;
     NSTextFieldCell *_nickNameCell;
 }
+
+@property (readonly, strong, nonatomic) NSMutableArray *people;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTableView *contactTableView;

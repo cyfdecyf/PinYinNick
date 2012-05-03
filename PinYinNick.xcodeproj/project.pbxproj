@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA06E984154FC33300BD92C4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E982154FC31400BD92C4 /* AddressBook.framework */; };
-		FA5AB4711550FC9500653BCE /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
-		FA5AB4751550FCB200653BCE /* Hanzi2Pinyin.framework in Resources */ = {isa = PBXBuildFile; fileRef = FA5AB4601550FBBD00653BCE /* Hanzi2Pinyin.framework */; };
+		FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
+		FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E987154FC38000BD92C4 /* AddressBook.framework */; };
+		FA0337DD1552515E001162D0 /* Hanzi2Pinyin.framework in Resources */ = {isa = PBXBuildFile; fileRef = FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */; };
+		FA0337E01552658C001162D0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0337DF1552658C001162D0 /* Person.m */; };
 		FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */; };
 		FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */; };
 		FA948FE9154D6A9A0094E4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA948FE8154D6A9A0094E4E9 /* main.m */; };
@@ -19,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FA0337D81552513D001162D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD5FC3A144019540057FC2C;
+			remoteInfo = Hanzi2Pinyin;
+		};
 		FA5AB4671550FBD100653BCE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */;
@@ -33,21 +41,14 @@
 			remoteGlobalIDString = FAD5FC53144019540057FC2C;
 			remoteInfo = Hanzi2PinyinTests;
 		};
-		FA5AB46F1550FC8E00653BCE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FAD5FC3A144019540057FC2C;
-			remoteInfo = Hanzi2Pinyin;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA06E982154FC31400BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
+		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		FA5AB4601550FBBD00653BCE /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
 		FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hanzi2Pinyin.xcodeproj; path = "/Users/alex/programming/mac/PinYinNickWorkspace/../../hanzi2pinyin/objective-c/Hanzi2Pinyin/Hanzi2Pinyin.xcodeproj"; sourceTree = "<absolute>"; };
-		FA5AB4721550FC9C00653BCE /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
 		FA948FD8154D6A9A0094E4E9 /* PinYinNick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinYinNick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FA948FDF154D6A9A0094E4E9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -69,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5AB4711550FC9500653BCE /* Hanzi2Pinyin.framework in Frameworks */,
-				FA06E984154FC33300BD92C4 /* AddressBook.framework in Frameworks */,
+				FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */,
+				FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */,
 				FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,8 +91,6 @@
 		FA948FCD154D6A9A0094E4E9 = {
 			isa = PBXGroup;
 			children = (
-				FA5AB4601550FBBD00653BCE /* Hanzi2Pinyin.framework */,
-				FA06E982154FC31400BD92C4 /* AddressBook.framework */,
 				FA948FE2154D6A9A0094E4E9 /* PinYinNick */,
 				FA948FDB154D6A9A0094E4E9 /* Frameworks */,
 				FA948FD9154D6A9A0094E4E9 /* Products */,
@@ -110,7 +109,8 @@
 		FA948FDB154D6A9A0094E4E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA5AB4721550FC9C00653BCE /* Hanzi2Pinyin.framework */,
+				FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */,
+				FA06E987154FC38000BD92C4 /* AddressBook.framework */,
 				FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */,
 				FA948FDE154D6A9A0094E4E9 /* Other Frameworks */,
 			);
@@ -133,6 +133,8 @@
 				FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */,
 				FA948FEE154D6A9A0094E4E9 /* PYNickAppDelegate.h */,
 				FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */,
+				FA0337DE1552658C001162D0 /* Person.h */,
+				FA0337DF1552658C001162D0 /* Person.m */,
 				FA948FF1154D6A9A0094E4E9 /* MainMenu.xib */,
 				FA948FE3154D6A9A0094E4E9 /* Supporting Files */,
 			);
@@ -147,7 +149,6 @@
 				FA948FE8154D6A9A0094E4E9 /* main.m */,
 				FA948FEA154D6A9A0094E4E9 /* PinYinNick-Prefix.pch */,
 				FA948FEB154D6A9A0094E4E9 /* Credits.rtf */,
-				FA06E987154FC38000BD92C4 /* AddressBook.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -166,7 +167,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FA5AB4701550FC8E00653BCE /* PBXTargetDependency */,
+				FA0337D91552513D001162D0 /* PBXTargetDependency */,
 			);
 			name = PinYinNick;
 			productName = PinYinNick;
@@ -227,10 +228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5AB4751550FCB200653BCE /* Hanzi2Pinyin.framework in Resources */,
 				FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */,
 				FA948FED154D6A9A0094E4E9 /* Credits.rtf in Resources */,
 				FA948FF3154D6A9A0094E4E9 /* MainMenu.xib in Resources */,
+				FA0337DD1552515E001162D0 /* Hanzi2Pinyin.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,16 +244,17 @@
 			files = (
 				FA948FE9154D6A9A0094E4E9 /* main.m in Sources */,
 				FA948FF0154D6A9A0094E4E9 /* PYNickAppDelegate.m in Sources */,
+				FA0337E01552658C001162D0 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA5AB4701550FC8E00653BCE /* PBXTargetDependency */ = {
+		FA0337D91552513D001162D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Hanzi2Pinyin;
-			targetProxy = FA5AB46F1550FC8E00653BCE /* PBXContainerItemProxy */;
+			targetProxy = FA0337D81552513D001162D0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -308,6 +310,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -328,6 +331,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
@@ -357,6 +361,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PinYinNick/PinYinNick-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BLOCK_ASSERTIONS;
 				INFOPLIST_FILE = "PinYinNick/PinYinNick-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
