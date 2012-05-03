@@ -10,6 +10,7 @@
 		FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E987154FC38000BD92C4 /* AddressBook.framework */; };
 		FA0337DD1552515E001162D0 /* Hanzi2Pinyin.framework in Resources */ = {isa = PBXBuildFile; fileRef = FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */; };
+		FA0337E01552658C001162D0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0337DF1552658C001162D0 /* Person.m */; };
 		FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */; };
 		FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */; };
 		FA948FE9154D6A9A0094E4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA948FE8154D6A9A0094E4E9 /* main.m */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
+		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hanzi2Pinyin.xcodeproj; path = "/Users/alex/programming/mac/PinYinNickWorkspace/../../hanzi2pinyin/objective-c/Hanzi2Pinyin/Hanzi2Pinyin.xcodeproj"; sourceTree = "<absolute>"; };
 		FA948FD8154D6A9A0094E4E9 /* PinYinNick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinYinNick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,8 @@
 				FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */,
 				FA948FEE154D6A9A0094E4E9 /* PYNickAppDelegate.h */,
 				FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */,
+				FA0337DE1552658C001162D0 /* Person.h */,
+				FA0337DF1552658C001162D0 /* Person.m */,
 				FA948FF1154D6A9A0094E4E9 /* MainMenu.xib */,
 				FA948FE3154D6A9A0094E4E9 /* Supporting Files */,
 			);
@@ -239,6 +244,7 @@
 			files = (
 				FA948FE9154D6A9A0094E4E9 /* main.m in Sources */,
 				FA948FF0154D6A9A0094E4E9 /* PYNickAppDelegate.m in Sources */,
+				FA0337E01552658C001162D0 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +310,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -324,6 +331,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
@@ -353,6 +361,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PinYinNick/PinYinNick-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BLOCK_ASSERTIONS;
 				INFOPLIST_FILE = "PinYinNick/PinYinNick-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

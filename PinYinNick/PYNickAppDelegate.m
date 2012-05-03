@@ -7,6 +7,7 @@
 //
 
 #import "PYNickAppDelegate.h"
+#import "Person.h"
 #import "Hanzi2Pinyin/Hanzi2Pinyin.h"
 #import <AppKit/NSAlert.h>
 
@@ -19,15 +20,6 @@
 {
     // Insert code here to initialize your application
 }
-
-// I use the people array to store contact information. Each element in this people
-// array is an array containing related information.
-// The following constants define the index of various informatino.
-static const NSUInteger PERSON_IDX = 0;
-static const NSUInteger FULLNAME_IDX = 1;
-static const NSUInteger NICKNAME_IDX = 2;
-static const NSUInteger MODIFIED_IDX = 3;
-static const NSUInteger FULLNAME_PINYIN_IDX = 4;
 
 static const CGFloat CELL_FONT_SIZE = 13;
 
@@ -47,32 +39,18 @@ static const CGFloat CELL_FONT_SIZE = 13;
 
 - (void)loadContacts {
     _ab = [ABAddressBook sharedAddressBook];
-    NSArray *people = [_ab people];
-    _people = [[NSMutableArray alloc] initWithCapacity:[people count]];
-    
-    for (ABPerson *person in people) {
-        NSString *fullName = [self fullNameForPerson:person];
-        
-        // If the person has nick name, use it. Otherwise, create pinyin nick
-        NSString *nick = [person valueForProperty:kABNicknameProperty];
-        BOOL modified = NO;
-        if (!nick) {
-            nick = [self pynickForPerson:person fullName:fullName];
-            modified = [nick isEqualToString:@""] ? NO : YES;
-        }
-        
-        NSMutableArray *record = [[NSMutableArray alloc] initWithObjects:person,
-                                  fullName, nick, [NSNumber numberWithBool:modified],
-                                  [Hanzi2Pinyin convert:fullName],
-                                  nil];
-        [_people addObject:record];
+    NSArray *abPeople = [_ab people];
+    _people = [[NSMutableArray alloc] initWithCapacity:[abPeople count]];
+
+    for (ABPerson *abPerson in abPeople) {
+        Person *person = [[Person alloc] initWithPerson:abPerson];
+        [_people addObject:person];
     }
-    
-    // Sort people using their full name. Put person with no nick at last.
+
+    // Sort people using their full name.
     [_people sortUsingComparator:^(id r1, id r2) {
-        NSString *namepy1 = [r1 objectAtIndex:FULLNAME_PINYIN_IDX];
-        NSString *namepy2 = [r2 objectAtIndex:FULLNAME_PINYIN_IDX];
-        
+        NSString *namepy1 = [r1 fullNamePinyin];
+        NSString *namepy2 = [r2 fullNamePinyin];
         return [namepy1 caseInsensitiveCompare:namepy2];
     }];
 }
@@ -82,35 +60,6 @@ static const CGFloat CELL_FONT_SIZE = 13;
     // So initialization should be done here.
     [self loadContacts];
     [self createCell];
-}
-
-- (NSString *)fullNameForPerson:(ABPerson *)person {
-    NSString *firstName = [person valueForProperty:kABFirstNameProperty];
-    NSString *lastName = [person valueForProperty:kABLastNameProperty];
-    NSMutableString *fullName = [[NSMutableString alloc] initWithCapacity:10];
-    if (lastName != nil) {
-        [fullName appendString:lastName];
-    }
-    if (firstName != nil) {
-        if (lastName == nil)
-            [fullName appendString:firstName];
-        else
-            [fullName appendFormat:@" %@", firstName];
-    }
-    return [NSString stringWithString:fullName];
-}
-
-- (NSString *)pynickForPerson:(ABPerson *)person fullName:(NSString *)fullName {
-    if (!fullName) {
-        fullName = [self fullNameForPerson:person];
-    }
-    NSString *pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
-    // If the full name does not include Chinese, don't create nick
-    if ([pynick isEqualToString:fullName]) {
-        pynick = @"";
-    }
-
-    return pynick;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
@@ -123,37 +72,35 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn
             row:(NSInteger)row {
-    NSArray *record = [_people objectAtIndex:row];
+    NSAssert(row < [_people count], @"row exceeds people count");
+
+    Person *person = [_people objectAtIndex:row];
     NSString *columnIdentifier = [tableColumn identifier];
-    if ([columnIdentifier isEqualToString:FULLNAME_IDENTIFIER]) {
-        return [record objectAtIndex:FULLNAME_IDX];
+    if ([columnIdentifier isEqual:FULLNAME_IDENTIFIER]) {
+        return [person fullName];
     } else {
-        return [record objectAtIndex:NICKNAME_IDX];
+        return [person nickName];
     }
 }
 
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object
-            forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSMutableArray *record = [_people objectAtIndex:row];
-    
-    if ([object isEqualToString:[record objectAtIndex:NICKNAME_IDX]]) {
-        return;
-    }
-    
-    NSString *columnIdentifier = [tableColumn identifier];
-    if ([columnIdentifier isEqualToString:NICKNAME_IDENTIFIER]) {
-        [record replaceObjectAtIndex:NICKNAME_IDX withObject:object];
-        [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:YES]];
-    }
+   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSAssert((NSUInteger)row < [_people count], @"row exceeds people count");
+    NSAssert([[tableColumn identifier] isEqual:NICKNAME_IDENTIFIER],
+             @"Only nick name should be editable");
+
+    Person *person = [_people objectAtIndex:row];
+    [person setNickName:object];
 }
 
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
-    NSArray *record = [_people objectAtIndex:row];
+    NSAssert((NSUInteger)row < [_people count], @"row exceeds people count");
+    Person *person = [_people objectAtIndex:row];
     if (!tableColumn)
         return nil;
 
-    if ([[record objectAtIndex:MODIFIED_IDX] boolValue]) {
+    if ([person isModified]) {
         NSString *columnIdentifier = [tableColumn identifier];
         if ([columnIdentifier isEqualToString:FULLNAME_IDENTIFIER]) {
             return _fullNameCell;
@@ -165,26 +112,26 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 }
 
 - (IBAction)saveModifiedContact:(id)sender {
-    for (NSMutableArray *record in _people) {
-        NSString *nickName = [record objectAtIndex:NICKNAME_IDX];
-        ABPerson *person = [record objectAtIndex:PERSON_IDX];
-        [person setValue:nickName forProperty:kABNicknameProperty];
-        [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:NO]];
+    for (Person *person in _people) {
+        NSString *nickName = [person nickName];
+        ABPerson *abPerson = [person abPerson];
+        [abPerson setValue:nickName forProperty:kABNicknameProperty];
+        [person setModified:NO];
     }
     [_ab save];
     [_contactTableView reloadData];
 }
 
-- (void)alertEnded:(NSAlert *)alert code:(NSInteger)choice context:(void *)v {
-    if (choice == NSAlertDefaultReturn) {
-        NSLog(@"removing nick name");
-        for (NSMutableArray *record in _people) {
-            if ([Hanzi2Pinyin hasChineseCharacter:[record objectAtIndex:FULLNAME_IDX]]) {
-                [record replaceObjectAtIndex:NICKNAME_IDX withObject:@""];
-                [record replaceObjectAtIndex:MODIFIED_IDX withObject:[NSNumber numberWithBool:NO]];
-                ABPerson *person = [record objectAtIndex:PERSON_IDX];
-                [person setValue:nil forProperty:kABNicknameProperty];
-            }
+- (void)removeNickAlertEnded:(NSAlert *)alert code:(NSInteger)choice context:(void *)v {
+    if (choice != NSAlertDefaultReturn) {
+        return;
+    }
+    for (Person *person in _people) {
+        if ([Hanzi2Pinyin hasChineseCharacter:[person fullName]]) {
+            [person setNickName:@""];
+            [person setModified:NO];
+            ABPerson *abPerson = [person abPerson];
+            [abPerson setValue:nil forProperty:kABNicknameProperty];
         }
     }
     [_ab save];
@@ -198,7 +145,7 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
                          informativeTextWithFormat:@"Nick names associated with contacts which have Chinese characters will be deleted."];
     [alert beginSheetModalForWindow:_window
                       modalDelegate:self
-                     didEndSelector:@selector(alertEnded:code:context:)
+                     didEndSelector:@selector(removeNickAlertEnded:code:context:)
                         contextInfo:NULL];
 }
 
