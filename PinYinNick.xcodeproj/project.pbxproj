@@ -44,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
+		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
 		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };

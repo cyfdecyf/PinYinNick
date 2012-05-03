@@ -13,6 +13,8 @@
 
 @implementation PYNickAppDelegate
 
+@synthesize people = _people;
+
 @synthesize window = _window;
 @synthesize contactTableView = _contactTableView;
 
@@ -55,43 +57,19 @@ static const CGFloat CELL_FONT_SIZE = 13;
     }];
 }
 
-- (void)awakeFromNib {
-    // numberOfRowsInTableView will be called before applicationDidFinishLaunching.
-    // So initialization should be done here.
-    [self loadContacts];
-    [self createCell];
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
-    NSInteger count = [_people count];
-    return count;
+- (id)init {
+    // When using NSArrayController, it's important to do initialization in init.
+    // NSArrayController may access the binded content array before awakeFromNib is called.
+    self = [super init];
+    if (self) {
+        [self loadContacts];
+        [self createCell];
+    }
+    return self;
 }
 
 static NSString *FULLNAME_IDENTIFIER = @"fullName";
 static NSString *NICKNAME_IDENTIFIER = @"nickName";
-
-- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn
-            row:(NSInteger)row {
-    NSAssert(row < [_people count], @"row exceeds people count");
-
-    Person *person = [_people objectAtIndex:row];
-    NSString *columnIdentifier = [tableColumn identifier];
-    if ([columnIdentifier isEqual:FULLNAME_IDENTIFIER]) {
-        return [person fullName];
-    } else {
-        return [person nickName];
-    }
-}
-
-- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object
-   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSAssert((NSUInteger)row < [_people count], @"row exceeds people count");
-    NSAssert([[tableColumn identifier] isEqual:NICKNAME_IDENTIFIER],
-             @"Only nick name should be editable");
-
-    Person *person = [_people objectAtIndex:row];
-    [person setNickName:object];
-}
 
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
