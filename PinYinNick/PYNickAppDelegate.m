@@ -151,10 +151,14 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     [undo removeAllActions];
     [undo disableUndoRegistration];
     for (Person *person in _people) {
-        NSString *nickName = [person nickName];
-        ABPerson *abPerson = [person abPerson];
-        [abPerson setValue:nickName forProperty:kABNicknameProperty];
-        [person setModified:NO];
+        if ([person isModified]) {
+            // Empty value in table view will be set to nil.
+            // So don't need to test for empty string here.
+            NSString *nickName = [person nickName];
+            ABPerson *abPerson = [person abPerson];
+            [abPerson setValue:nickName forProperty:kABNicknameProperty];
+            [person setModified:NO];
+        }
     }
     [undo enableUndoRegistration];
     [_ab save];

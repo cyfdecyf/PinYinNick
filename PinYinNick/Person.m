@@ -31,7 +31,8 @@
         _nickName = [abPerson valueForProperty:kABNicknameProperty];
         if (!_nickName) {
             _nickName = [self pynickForPerson:abPerson fullName:_fullName];
-            _modified = [_nickName isEqual:@""] ? NO : YES;
+            if (_nickName)
+                _modified = YES;
         }
     }
     return self;
@@ -47,7 +48,7 @@
 }
 
 - (void)setNickName:(NSString *)nickName {
-    if ([nickName isEqual:_nickName]) {
+    if ([nickName isEqualToString:_nickName]) {
         return;
     }
     _nickName = nickName;
@@ -80,9 +81,9 @@
     NSString *pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
     // If the full name does not include Chinese, don't create nick
     if ([pynick isEqualToString:fullName]) {
-        pynick = @"";
+        pynick = nil;
     }
-    
+
     return pynick;
 }
 
