@@ -47,6 +47,7 @@ static const CGFloat CELL_FONT_SIZE = 13;
     for (ABPerson *abPerson in abPeople) {
         Person *person = [[Person alloc] initWithPerson:abPerson];
         [_people addObject:person];
+        [self startObservingPerson:person];
     }
 
     // Sort people using their full name.
@@ -67,6 +68,62 @@ static const CGFloat CELL_FONT_SIZE = 13;
     }
     return self;
 }
+
+// For undo support.
+
+static void *PYNickAppDelegateKVOContext;
+
+- (void)startObservingPerson:(Person *)person
+{
+    [person addObserver:self
+             forKeyPath:@"nickName"
+                options:NSKeyValueObservingOptionOld
+                context:&PYNickAppDelegateKVOContext];
+    [person addObserver:self
+             forKeyPath:@"modified"
+                options:NSKeyValueObservingOptionOld
+                context:&PYNickAppDelegateKVOContext];
+}
+
+- (void)changeKeyPath:(NSString *)keyPath
+             ofObject:(id)obj
+              toValue:(id)newValue
+{
+    // setValue:forKeyPath: will cause the key-value observing method
+    // to be called, which takes care of the undo stuff
+    [obj setValue:newValue forKeyPath:keyPath];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (context != &PYNickAppDelegateKVOContext) {
+        // If the context does not match, this message
+        // must be intended for our superclass.
+        [super observeValueForKeyPath:keyPath
+                             ofObject:object
+                               change:change
+                              context:context];
+        return;
+    }
+
+    id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+
+    // NSNull objects are used to represent nil in a dictionary
+    if (oldValue == [NSNull null]) {
+        oldValue = nil;
+    }
+//    NSLog(@"oldValue = %@", oldValue);
+    NSUndoManager *undo = [_window undoManager];
+    [[undo prepareWithInvocationTarget:self] changeKeyPath:keyPath
+                                                  ofObject:object
+                                                   toValue:oldValue];
+    [undo setActionName:[NSString stringWithFormat:@"Edit %@", [object fullName]]];
+}
+
+// Make modified row use bold and blue font
 
 static NSString *FULLNAME_IDENTIFIER = @"fullName";
 static NSString *NICKNAME_IDENTIFIER = @"nickName";
@@ -90,12 +147,16 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 }
 
 - (IBAction)saveModifiedContact:(id)sender {
+    NSUndoManager *undo = [_window undoManager];
+    [undo removeAllActions];
+    [undo disableUndoRegistration];
     for (Person *person in _people) {
         NSString *nickName = [person nickName];
         ABPerson *abPerson = [person abPerson];
         [abPerson setValue:nickName forProperty:kABNicknameProperty];
         [person setModified:NO];
     }
+    [undo enableUndoRegistration];
     [_ab save];
     [_contactTableView reloadData];
 }
@@ -104,6 +165,9 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     if (choice != NSAlertDefaultReturn) {
         return;
     }
+    NSUndoManager *undo = [_window undoManager];
+    [undo removeAllActions];
+    [undo disableUndoRegistration];
     for (Person *person in _people) {
         if ([Hanzi2Pinyin hasChineseCharacter:[person fullName]]) {
             [person setNickName:@""];
@@ -112,6 +176,7 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
             [abPerson setValue:nil forProperty:kABNicknameProperty];
         }
     }
+    [undo enableUndoRegistration];
     [_ab save];
 }
 

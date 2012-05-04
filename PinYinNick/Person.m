@@ -51,7 +51,10 @@
         return;
     }
     _nickName = nickName;
+    
+    [self willChangeValueForKey:@"modified"];
     _modified = YES;
+    [self didChangeValueForKey:@"modified"];
 }
 
 - (NSString *)fullNameForPerson:(ABPerson *)abPerson {
