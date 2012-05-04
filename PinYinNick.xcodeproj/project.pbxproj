@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E987154FC38000BD92C4 /* AddressBook.framework */; };
-		FA0337DD1552515E001162D0 /* Hanzi2Pinyin.framework in Resources */ = {isa = PBXBuildFile; fileRef = FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */; };
 		FA0337E01552658C001162D0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0337DF1552658C001162D0 /* Person.m */; };
+		FA39C4BE1553B2C20059A4B4 /* Hanzi2Pinyin.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
+		FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */ = {isa = PBXBuildFile; fileRef = FA71E1261553C53200B62984 /* PinYinNick.icns */; };
 		FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */; };
 		FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */; };
 		FA948FE9154D6A9A0094E4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA948FE8154D6A9A0094E4E9 /* main.m */; };
@@ -43,12 +44,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FA39C4BD1553B2790059A4B4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA39C4BE1553B2C20059A4B4 /* Hanzi2Pinyin.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
 		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hanzi2Pinyin.xcodeproj; path = "/Users/alex/programming/mac/PinYinNickWorkspace/../../hanzi2pinyin/objective-c/Hanzi2Pinyin/Hanzi2Pinyin.xcodeproj"; sourceTree = "<absolute>"; };
+		FA71E1261553C53200B62984 /* PinYinNick.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PinYinNick.icns; sourceTree = SOURCE_ROOT; };
 		FA948FD8154D6A9A0094E4E9 /* PinYinNick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinYinNick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FA948FDF154D6A9A0094E4E9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +159,7 @@
 		FA948FE3154D6A9A0094E4E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA71E1261553C53200B62984 /* PinYinNick.icns */,
 				FA948FE4154D6A9A0094E4E9 /* PinYinNick-Info.plist */,
 				FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */,
 				FA948FE8154D6A9A0094E4E9 /* main.m */,
@@ -163,6 +179,7 @@
 				FA948FD4154D6A9A0094E4E9 /* Sources */,
 				FA948FD5154D6A9A0094E4E9 /* Frameworks */,
 				FA948FD6154D6A9A0094E4E9 /* Resources */,
+				FA39C4BD1553B2790059A4B4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -231,7 +248,7 @@
 				FA948FE7154D6A9A0094E4E9 /* InfoPlist.strings in Resources */,
 				FA948FED154D6A9A0094E4E9 /* Credits.rtf in Resources */,
 				FA948FF3154D6A9A0094E4E9 /* MainMenu.xib in Resources */,
-				FA0337DD1552515E001162D0 /* Hanzi2Pinyin.framework in Resources */,
+				FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
