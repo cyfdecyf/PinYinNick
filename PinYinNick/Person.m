@@ -26,11 +26,11 @@
         }
 
         _abPerson = abPerson;
-        _fullName = [self fullNameForPerson:abPerson];
+        _fullName = [Person fullNameForPerson:abPerson];
         _fullNamePinyin = [Hanzi2Pinyin convert:_fullName];
         _nickName = [abPerson valueForProperty:kABNicknameProperty];
         if (!_nickName) {
-            _nickName = [self pynickForPerson:abPerson fullName:_fullName];
+            _nickName = [Person pynickForPerson:abPerson fullName:_fullName];
             if (_nickName)
                 _modified = YES;
         }
@@ -58,7 +58,7 @@
     [self didChangeValueForKey:@"modified"];
 }
 
-- (NSString *)fullNameForPerson:(ABPerson *)abPerson {
++ (NSString *)fullNameForPerson:(ABPerson *)abPerson {
     NSString *firstName = [abPerson valueForProperty:kABFirstNameProperty];
     NSString *lastName = [abPerson valueForProperty:kABLastNameProperty];
     NSMutableString *fullName = [[NSMutableString alloc] initWithCapacity:10];
@@ -74,10 +74,11 @@
     return [NSString stringWithString:fullName];
 }
 
-- (NSString *)pynickForPerson:(ABPerson *)abPerson fullName:(NSString *)fullName {
++ (NSString *)pynickForPerson:(ABPerson *)abPerson fullName:(NSString *)fullName {
     if (!fullName) {
         fullName = [self fullNameForPerson:abPerson];
     }
+    fullName = [fullName stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *pynick = [Hanzi2Pinyin convertToAbbreviation:fullName];
     // If the full name does not include Chinese, don't create nick
     if ([pynick isEqualToString:fullName]) {
