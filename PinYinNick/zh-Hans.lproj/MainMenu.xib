@@ -49,7 +49,7 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="694149608">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">PinYinNick</string>
+						<string key="NSTitle">拼音昵称</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -63,11 +63,11 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<string key="NSTitle">PinYinNick</string>
+							<string key="NSTitle">拼音昵称</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="238522557">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">About PinYinNick</string>
+									<string key="NSTitle">关于 拼音昵称</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -86,7 +86,7 @@
 								</object>
 								<object class="NSMenuItem" id="609285721">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Preferences…</string>
+									<string key="NSTitle">偏好设置</string>
 									<string key="NSKeyEquiv">,</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -106,7 +106,7 @@
 								</object>
 								<object class="NSMenuItem" id="1046388886">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Services</string>
+									<string key="NSTitle">服务</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -114,7 +114,7 @@
 									<reference key="NSMixedImage" ref="502551668"/>
 									<string key="NSAction">submenuAction:</string>
 									<object class="NSMenu" key="NSSubmenu" id="752062318">
-										<string key="NSTitle">Services</string>
+										<string key="NSTitle">服务</string>
 										<array class="NSMutableArray" key="NSMenuItems"/>
 										<string key="NSName">_NSServicesMenu</string>
 									</object>
@@ -132,7 +132,7 @@
 								</object>
 								<object class="NSMenuItem" id="755159360">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Hide PinYinNick</string>
+									<string key="NSTitle">隐藏 拼音昵称</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -141,7 +141,7 @@
 								</object>
 								<object class="NSMenuItem" id="342932134">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Hide Others</string>
+									<string key="NSTitle">隐藏其他</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -150,7 +150,7 @@
 								</object>
 								<object class="NSMenuItem" id="908899353">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Show All</string>
+									<string key="NSTitle">显示全部</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -170,7 +170,7 @@
 								</object>
 								<object class="NSMenuItem" id="632727374">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Quit PinYinNick</string>
+									<string key="NSTitle">退出 拼音昵称</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -183,18 +183,18 @@
 					</object>
 					<object class="NSMenuItem" id="1029413554">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">File</string>
+						<string key="NSTitle">文件</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="867799987">
-							<string key="NSTitle">File</string>
+							<string key="NSTitle">文件</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="767672223">
 									<reference key="NSMenu" ref="867799987"/>
-									<string key="NSTitle">Save modified nick names</string>
+									<string key="NSTitle">保存修改过的昵称</string>
 									<string key="NSKeyEquiv">s</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -203,7 +203,7 @@
 								</object>
 								<object class="NSMenuItem" id="515401414">
 									<reference key="NSMenu" ref="867799987"/>
-									<string key="NSTitle">Remove all pinyin nick</string>
+									<string key="NSTitle">移除所有拼音昵称</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -214,7 +214,7 @@
 					</object>
 					<object class="NSMenuItem" id="952259628">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">Edit</string>
+						<string key="NSTitle">编辑</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -222,11 +222,11 @@
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="789758025">
-							<string key="NSTitle">Edit</string>
+							<string key="NSTitle">编辑</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="1058277027">
 									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Undo</string>
+									<string key="NSTitle">撤销</string>
 									<string key="NSKeyEquiv">z</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -235,7 +235,7 @@
 								</object>
 								<object class="NSMenuItem" id="790794224">
 									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Redo</string>
+									<string key="NSTitle">重做</string>
 									<string key="NSKeyEquiv">Z</string>
 									<int key="NSKeyEquivModMask">1179648</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -255,7 +255,7 @@
 								</object>
 								<object class="NSMenuItem" id="296257095">
 									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Cut</string>
+									<string key="NSTitle">剪切</string>
 									<string key="NSKeyEquiv">x</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -264,7 +264,7 @@
 								</object>
 								<object class="NSMenuItem" id="860595796">
 									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Copy</string>
+									<string key="NSTitle">拷贝</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -273,7 +273,7 @@
 								</object>
 								<object class="NSMenuItem" id="29853731">
 									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Paste</string>
+									<string key="NSTitle">粘贴</string>
 									<string key="NSKeyEquiv">v</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -285,7 +285,7 @@
 					</object>
 					<object class="NSMenuItem" id="713487014">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">Window</string>
+						<string key="NSTitle">窗口</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -293,11 +293,11 @@
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="835318025">
-							<string key="NSTitle">Window</string>
+							<string key="NSTitle">窗口</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="1011231497">
 									<reference key="NSMenu" ref="835318025"/>
-									<string key="NSTitle">Minimize</string>
+									<string key="NSTitle">最小化</string>
 									<string key="NSKeyEquiv">m</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -306,7 +306,7 @@
 								</object>
 								<object class="NSMenuItem" id="575023229">
 									<reference key="NSMenu" ref="835318025"/>
-									<string key="NSTitle">Zoom</string>
+									<string key="NSTitle">缩放窗口</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -319,18 +319,18 @@
 					</object>
 					<object class="NSMenuItem" id="448692316">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">Help</string>
+						<string key="NSTitle">帮助</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="992780483">
-							<string key="NSTitle">Help</string>
+							<string key="NSTitle">帮助</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="105068016">
 									<reference key="NSMenu" ref="992780483"/>
-									<string key="NSTitle">PinYinNick Help</string>
+									<string key="NSTitle">拼音昵称 帮助</string>
 									<string key="NSKeyEquiv">?</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -360,18 +360,19 @@
 						<object class="NSButton" id="728411156">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{24, 13}, {204, 32}}</string>
+							<string key="NSFrame">{{54, 13}, {144, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="342497523">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Save modified nick names</string>
-								<object class="NSFont" key="NSSupport" id="1016165302">
-									<string key="NSName">LucidaGrande</string>
+								<string key="NSContents">保存修改过的昵称</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">STHeitiSC-Light</string>
 									<double key="NSSize">13</double>
-									<int key="NSfFlags">1044</int>
+									<int key="NSfFlags">16</int>
 								</object>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="728411156"/>
@@ -424,8 +425,12 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">134219776</int>
-														<string key="NSContents">Full name</string>
-														<reference key="NSSupport" ref="1016165302"/>
+														<string key="NSContents">姓名</string>
+														<object class="NSFont" key="NSSupport" id="1016165302">
+															<string key="NSName">LucidaGrande</string>
+															<double key="NSSize">13</double>
+															<int key="NSfFlags">1044</int>
+														</object>
 														<object class="NSColor" key="NSBackgroundColor" id="492601389">
 															<int key="NSColorSpace">3</int>
 															<bytes key="NSWhite">MC4zMzMzMzI5ODU2AA</bytes>
@@ -465,7 +470,7 @@
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
 													<reference key="NSTableView" ref="732406568"/>
-													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype" id="404874797">
 														<string key="NSKey">fullNamePinyin</string>
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">caseInsensitiveCompare:</string>
@@ -479,7 +484,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">134219776</int>
-														<string key="NSContents">Pinyin Nick</string>
+														<string key="NSContents">昵称</string>
 														<reference key="NSSupport" ref="1016165302"/>
 														<reference key="NSBackgroundColor" ref="492601389"/>
 														<reference key="NSTextColor" ref="283920216"/>
@@ -497,7 +502,7 @@
 													<bool key="NSIsResizeable">YES</bool>
 													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="732406568"/>
-													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype" id="122152002">
 														<string key="NSKey">nickName</string>
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">caseInsensitiveCompare:</string>
@@ -524,6 +529,10 @@
 											<reference key="NSDelegate"/>
 											<reference key="NSDataSource"/>
 											<int key="NSGridStyleMask">1</int>
+											<array key="NSSortDescriptors">
+												<reference ref="122152002"/>
+												<reference ref="404874797"/>
+											</array>
 											<int key="NSColumnAutoresizingStyle">5</int>
 											<int key="NSDraggingSourceMaskForLocal">15</int>
 											<int key="NSDraggingSourceMaskForNonLocal">0</int>

@@ -174,7 +174,7 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     [undo disableUndoRegistration];
     for (Person *person in _people) {
         if ([Hanzi2Pinyin hasChineseCharacter:[person fullName]]) {
-            [person setNickName:@""];
+            [person setNickName:nil];
             [person setModified:NO];
             ABPerson *abPerson = [person abPerson];
             [abPerson setValue:nil forProperty:kABNicknameProperty];

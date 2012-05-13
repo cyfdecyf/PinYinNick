@@ -78,6 +78,7 @@
 		FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYNickAppDelegate.m; sourceTree = "<group>"; };
 		FA948FF2154D6A9A0094E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PinYinNick.entitlements; sourceTree = "<group>"; };
+		FAAEF4B7156003D90081CAFB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +207,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = FA948FCD154D6A9A0094E4E9;
 			productRefGroup = FA948FD9154D6A9A0094E4E9 /* Products */;
@@ -296,6 +298,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA948FF2154D6A9A0094E4E9 /* en */,
+				FAAEF4B7156003D90081CAFB /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
