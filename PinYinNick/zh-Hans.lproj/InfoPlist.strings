@@ -1,0 +1,4 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleDisplayName = "拼音昵称";
+CFBundleName = "拼音昵称"; /* This will be displayed on the menu. */

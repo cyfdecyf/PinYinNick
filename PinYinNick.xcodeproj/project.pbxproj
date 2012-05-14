@@ -63,6 +63,8 @@
 		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		FA14D5BC1560ADA7007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		FA14D5BD1560AF23007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FA1779871560A7C000D202E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hanzi2Pinyin.xcodeproj; path = "/Users/alex/programming/mac/PinYinNickWorkspace/../../hanzi2pinyin/objective-c/Hanzi2Pinyin/Hanzi2Pinyin.xcodeproj"; sourceTree = "<absolute>"; };
 		FA71E1261553C53200B62984 /* PinYinNick.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PinYinNick.icns; sourceTree = SOURCE_ROOT; };
@@ -294,6 +296,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA948FE6154D6A9A0094E4E9 /* en */,
+				FA14D5BD1560AF23007BE2CE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA948FEC154D6A9A0094E4E9 /* en */,
+				FA14D5BC1560ADA7007BE2CE /* zh-Hans */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
