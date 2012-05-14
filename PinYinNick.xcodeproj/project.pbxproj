@@ -10,6 +10,7 @@
 		FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E987154FC38000BD92C4 /* AddressBook.framework */; };
 		FA0337E01552658C001162D0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0337DF1552658C001162D0 /* Person.m */; };
+		FA0531181560D1D100A9B64A /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = FA0531171560D1D100A9B64A /* Changelog */; };
 		FA1779881560A7C000D202E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1779861560A7C000D202E7 /* Localizable.strings */; };
 		FA39C4BE1553B2C20059A4B4 /* Hanzi2Pinyin.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */ = {isa = PBXBuildFile; fileRef = FA71E1261553C53200B62984 /* PinYinNick.icns */; };
@@ -62,6 +63,7 @@
 		FA0337DC1552515E001162D0 /* Hanzi2Pinyin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hanzi2Pinyin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/PinYinNick-aaydxbxvlscphgghuzigdajempwr/Build/Products/Debug/Hanzi2Pinyin.framework"; sourceTree = "<group>"; };
 		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		FA0531171560D1D100A9B64A /* Changelog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Changelog; path = ../Changelog; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FA14D5BC1560ADA7007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		FA14D5BD1560AF23007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		FA948FE3154D6A9A0094E4E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA0531171560D1D100A9B64A /* Changelog */,
 				FA1779861560A7C000D202E7 /* Localizable.strings */,
 				FA71E1261553C53200B62984 /* PinYinNick.icns */,
 				FA948FE4154D6A9A0094E4E9 /* PinYinNick-Info.plist */,
@@ -257,6 +260,7 @@
 				FA948FF3154D6A9A0094E4E9 /* MainMenu.xib in Resources */,
 				FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */,
 				FA1779881560A7C000D202E7 /* Localizable.strings in Resources */,
+				FA0531181560D1D100A9B64A /* Changelog in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,5 @@
+Version 1.0.1:
+
+- Add Chinese localizaion
+- Bug fix: after user changed the sort order, the underlying people array should
+change its sort order

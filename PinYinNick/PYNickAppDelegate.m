@@ -45,12 +45,17 @@ static const CGFloat CELL_FONT_SIZE = 13;
         [self startObservingPerson:person];
     }
 
-    // Sort people using their full name.
-    [_people sortUsingComparator:^(id r1, id r2) {
-        NSString *namepy1 = [r1 fullNamePinyin];
-        NSString *namepy2 = [r2 fullNamePinyin];
-        return [namepy1 caseInsensitiveCompare:namepy2];
-    }];
+    // Sort people using their full name and nick.
+    NSSortDescriptor *fullNamePinyinSortDesc = [NSSortDescriptor
+                                                sortDescriptorWithKey:@"fullNamePinyin"
+                                                ascending:YES
+                                                selector:@selector(caseInsensitiveCompare:)];
+    NSSortDescriptor *nickNameSortDesc = [NSSortDescriptor
+                                          sortDescriptorWithKey:@"nickName"
+                                          ascending:YES
+                                          selector:@selector(caseInsensitiveCompare:)];
+    NSArray *sortDesc = [NSArray arrayWithObjects:fullNamePinyinSortDesc, nickNameSortDesc, nil];
+    [_people sortUsingDescriptors:sortDesc];
 }
 
 - (id)init {
@@ -139,6 +144,12 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
         }
     }
     return nil;
+}
+
+- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn {
+    // Keep the underlying _people array's sort order in sync with table view's sorting order.
+    // Otherwise, the row index in the table view can't be used to get the correct person.
+    [_people sortUsingDescriptors:[_contactTableView sortDescriptors]];
 }
 
 - (IBAction)saveModifiedContact:(id)sender {
