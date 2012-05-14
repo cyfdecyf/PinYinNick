@@ -6,12 +6,12 @@ iCloud 同步后，也可以用缩写在 iOS 上搜索联系人。
 
 如果您觉得 iPhone 上拨打电话、发送短信或邮件时搜索联系人不方便，推荐尝试
 [Dialvetica](http://itunes.apple.com/us/app/dialvetica-contacts/id404074258?mt=8)。
-在添加了拼音昵称后用起来得心应手。（我跟 Dialvetica 的开发者没有什么关系，只是觉得这个软件好用而已。）
+在添加了拼音昵称后用起来得心应手。
 
 使用说明
 =======
 
-**注意：系统要求为 Lion，仅在 Lion 10.7.3 上测试过。**
+**注意：系统要求为 Lion，仅在 Lion 10.7.3, 10.7.4 上测试过。**
 
 这是个非常简单的程序。界面如下：
 
@@ -27,7 +27,7 @@ alt="PinYinNickScreenShot" />
 
 界面上可以直接修改联系人昵称，点击列表标题栏可以进行排序。
 
-"Edit" 菜单提供了删除所有中文联系人昵称的功能。
+文件菜单提供了删除所有中文联系人昵称的功能。
 
 没有对多音字进行特别处理，因此一些姓氏和名词会得到错误的缩写，例如姓氏“查”会得到
 "c"，“银行”得到的是 "yx"。（暂时没有解决这个问题的打算。）
@@ -37,5 +37,4 @@ alt="PinYinNickScreenShot" />
 
 - 拼音查询使用的是我自己写的库 [hanzi2pinyin](https://github.com/cyfdecyf/hanzi2pinyin)
   - 这个库只覆盖了 Unihan block1 中的汉字，日常使用应该足够
-- 暂时没有做 i18n，未来可能添加
-- 图标下载自 [IconArchive](http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Mimetypes-x-office-address-book-icon.html)，是 [Oxygen](http://www.oxygen-icons.org/) 设计的
+- 图标下载自 [IconArchive](http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Mimetypes-x-office-address-book-icon.html)，由 [Oxygen](http://www.oxygen-icons.org/) 设计
