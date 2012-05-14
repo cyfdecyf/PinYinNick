@@ -161,7 +161,8 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 }
 
 - (void)removeNickAlertEnded:(NSAlert *)alert code:(NSInteger)choice context:(void *)v {
-    if (choice != NSAlertDefaultReturn) {
+    // Default is cancel.
+    if (choice == NSAlertDefaultReturn) {
         return;
     }
     NSUndoManager *undo = [_window undoManager];
@@ -184,8 +185,8 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
 
 - (IBAction)removeAllPinyinNickNames:(id)sender {
     NSAlert *alert = [NSAlert alertWithMessageText:LocalizedString(@"REMOVE_ALERT_MSG", @"Remove all pinyin nick names")
-                                     defaultButton:LocalizedString(@"REMOVE", @"Remove")
-                                   alternateButton:LocalizedString(@"CANCEL", @"Cancel")
+                                     defaultButton:LocalizedString(@"CANCEL", @"Cancel")
+                                   alternateButton:LocalizedString(@"REMOVE", @"Remove")
                                        otherButton:nil
                          informativeTextWithFormat:LocalizedString(@"REMOVE_ALERT_INFO", @"Nick names associated with contacts which have Chinese characters will be deleted!")];
     [alert beginSheetModalForWindow:_window
