@@ -1,4 +1,7 @@
 /* Localized versions of Info.plist keys */
 
 CFBundleDisplayName = "拼音昵称";
-CFBundleName = "拼音昵称"; /* This will be displayed on the menu. */
+/* CFBundleName will be displayed on the menu. */
+CFBundleName = "拼音昵称";
+
+NSHumanReadableCopyright = "版权 2012 © 陈宇飞 保留所有权利";
