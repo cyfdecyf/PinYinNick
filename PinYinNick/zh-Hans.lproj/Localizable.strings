@@ -1,0 +1,9 @@
+/* 
+ Created by Chen Yufei on 12-5-14.
+ Copyright (c) 2012. All rights reserved.
+ */
+"REMOVE" = "删除";
+"CANCEL" = "取消";
+
+"REMOVE_ALERT_MSG" = "删除所有的拼音昵称";
+"REMOVE_ALERT_INFO" = "所有姓名中含有汉字的联系人的昵称将会被删除！";
