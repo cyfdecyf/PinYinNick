@@ -1,10 +1,5 @@
-//
-//  PYNickAppDelegate.m
-//  PinYinNick
-//
-//  Created by 陈宇飞 on 12-4-29.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
-//
+//  Created by Chen Yufei on 12-4-29.
+//  Copyright (c) 2012. All rights reserved.
 
 #import "PYNickAppDelegate.h"
 #import "Person.h"
@@ -174,7 +169,7 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     [undo disableUndoRegistration];
     for (Person *person in _people) {
         if ([Hanzi2Pinyin hasChineseCharacter:[person fullName]]) {
-            [person setNickName:@""];
+            [person setNickName:nil];
             [person setModified:NO];
             ABPerson *abPerson = [person abPerson];
             [abPerson setValue:nil forProperty:kABNicknameProperty];
@@ -184,12 +179,15 @@ static NSString *NICKNAME_IDENTIFIER = @"nickName";
     [_ab save];
 }
 
+#define LocalizedString(key, defaultValue) \
+    [[NSBundle mainBundle] localizedStringForKey:(key) value:defaultValue table:nil]
+
 - (IBAction)removeAllPinyinNickNames:(id)sender {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Remove all pinyin nick names"
-                                     defaultButton:@"Remove"
-                                   alternateButton:@"Cancel"
+    NSAlert *alert = [NSAlert alertWithMessageText:LocalizedString(@"REMOVE_ALERT_MSG", @"Remove all pinyin nick names")
+                                     defaultButton:LocalizedString(@"REMOVE", @"Remove")
+                                   alternateButton:LocalizedString(@"CANCEL", @"Cancel")
                                        otherButton:nil
-                         informativeTextWithFormat:@"Nick names associated with contacts which have Chinese characters will be deleted."];
+                         informativeTextWithFormat:LocalizedString(@"REMOVE_ALERT_INFO", @"Nick names associated with contacts which have Chinese characters will be deleted!")];
     [alert beginSheetModalForWindow:_window
                       modalDelegate:self
                      didEndSelector:@selector(removeNickAlertEnded:code:context:)

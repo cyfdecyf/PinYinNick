@@ -32,10 +32,10 @@ alt="PinYinNickScreenShot" />
 没有对多音字进行特别处理，因此一些姓氏和名词会得到错误的缩写，例如姓氏“查”会得到
 "c"，“银行”得到的是 "yx"。（暂时没有解决这个问题的打算。）
 
-细节
+其他
 ====
 
 - 拼音查询使用的是我自己写的库 [hanzi2pinyin](https://github.com/cyfdecyf/hanzi2pinyin)
   - 这个库只覆盖了 Unihan block1 中的汉字，日常使用应该足够
 - 暂时没有做 i18n，未来可能添加
-- 图标下载自[IconArchive](http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Mimetypes-x-office-address-book-icon.html)，是 [Oxygen](http://www.oxygen-icons.org/) 设计的。
+- 图标下载自 [IconArchive](http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Mimetypes-x-office-address-book-icon.html)，是 [Oxygen](http://www.oxygen-icons.org/) 设计的

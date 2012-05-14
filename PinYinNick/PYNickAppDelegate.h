@@ -1,10 +1,5 @@
-//
-//  PYNickAppDelegate.h
-//  PinYinNick
-//
-//  Created by 陈宇飞 on 12-4-29.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
-//
+//  Created by Chen Yufei on 12-4-29.
+//  Copyright (c) 2012. All rights reserved.
 
 #import <Cocoa/Cocoa.h>
 #import <Appkit/NSTextFieldCell.h>

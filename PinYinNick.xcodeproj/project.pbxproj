@@ -10,6 +10,7 @@
 		FA0337DA15525140001162D0 /* Hanzi2Pinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA0337DB15525147001162D0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06E987154FC38000BD92C4 /* AddressBook.framework */; };
 		FA0337E01552658C001162D0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0337DF1552658C001162D0 /* Person.m */; };
+		FA1779881560A7C000D202E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1779861560A7C000D202E7 /* Localizable.strings */; };
 		FA39C4BE1553B2C20059A4B4 /* Hanzi2Pinyin.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA5AB4681550FBD100653BCE /* Hanzi2Pinyin.framework */; };
 		FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */ = {isa = PBXBuildFile; fileRef = FA71E1261553C53200B62984 /* PinYinNick.icns */; };
 		FA948FDD154D6A9A0094E4E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA948FDC154D6A9A0094E4E9 /* Cocoa.framework */; };
@@ -62,6 +63,9 @@
 		FA0337DE1552658C001162D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FA0337DF1552658C001162D0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FA06E987154FC38000BD92C4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		FA14D5BC1560ADA7007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		FA14D5BD1560AF23007BE2CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		FA1779871560A7C000D202E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FA5AB4621550FBD100653BCE /* Hanzi2Pinyin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hanzi2Pinyin.xcodeproj; path = "/Users/alex/programming/mac/PinYinNickWorkspace/../../hanzi2pinyin/objective-c/Hanzi2Pinyin/Hanzi2Pinyin.xcodeproj"; sourceTree = "<absolute>"; };
 		FA71E1261553C53200B62984 /* PinYinNick.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PinYinNick.icns; sourceTree = SOURCE_ROOT; };
 		FA948FD8154D6A9A0094E4E9 /* PinYinNick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinYinNick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,7 @@
 		FA948FEF154D6A9A0094E4E9 /* PYNickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYNickAppDelegate.m; sourceTree = "<group>"; };
 		FA948FF2154D6A9A0094E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FA948FF9154D6AED0094E4E9 /* PinYinNick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PinYinNick.entitlements; sourceTree = "<group>"; };
+		FAAEF4B7156003D90081CAFB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +164,7 @@
 		FA948FE3154D6A9A0094E4E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA1779861560A7C000D202E7 /* Localizable.strings */,
 				FA71E1261553C53200B62984 /* PinYinNick.icns */,
 				FA948FE4154D6A9A0094E4E9 /* PinYinNick-Info.plist */,
 				FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */,
@@ -206,6 +212,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = FA948FCD154D6A9A0094E4E9;
 			productRefGroup = FA948FD9154D6A9A0094E4E9 /* Products */;
@@ -249,6 +256,7 @@
 				FA948FED154D6A9A0094E4E9 /* Credits.rtf in Resources */,
 				FA948FF3154D6A9A0094E4E9 /* MainMenu.xib in Resources */,
 				FA71E1271553C53200B62984 /* PinYinNick.icns in Resources */,
+				FA1779881560A7C000D202E7 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,10 +284,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FA1779861560A7C000D202E7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA1779871560A7C000D202E7 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		FA948FE5154D6A9A0094E4E9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA948FE6154D6A9A0094E4E9 /* en */,
+				FA14D5BD1560AF23007BE2CE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -288,6 +305,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA948FEC154D6A9A0094E4E9 /* en */,
+				FA14D5BC1560ADA7007BE2CE /* zh-Hans */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -296,6 +314,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA948FF2154D6A9A0094E4E9 /* en */,
+				FAAEF4B7156003D90081CAFB /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
