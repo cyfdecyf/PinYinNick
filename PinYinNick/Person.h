@@ -1,10 +1,5 @@
-//
-//  Person.h
-//  PinYinNick
-//
-//  Created by 陈宇飞 on 12-5-3.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
-//
+//  Created by Chen Yufei on 12-5-3.
+//  Copyright (c) 2012. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <AddressBook/AddressBook.h>
