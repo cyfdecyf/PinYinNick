@@ -2,7 +2,9 @@
 ====
 
 程序可以在 Mac 上为联系人添加拼音缩写的昵称，添加后可在 Address Book 中用缩写搜索联系人。通过
-iCloud 同步后，也可以用缩写在 iOS 上搜索联系人。
+iCloud 同步后，也可以用缩写在 iOS 上搜索联系人，效果如下图：
+
+<img src="https://img.skitch.com/20120525-n93785yk6qdctmf5gcjdx62ueb.png" alt="PYNickInContacts" />
 
 如果您觉得 iPhone 上拨打电话、发送短信或邮件时搜索联系人不方便，推荐尝试
 [Dialvetica](http://itunes.apple.com/us/app/dialvetica-contacts/id404074258?mt=8)。
